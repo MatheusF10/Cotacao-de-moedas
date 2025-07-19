@@ -1,55 +1,41 @@
-axios.get('https://economia.awesomeapi.com.br/json/all')
-.then(function(response){
-    
-    
-    const EUR = Number(response.data.EUR.high)
-    const USD = Number(response.data.USD.high)
-    const BTC = Number(response.data.BTC.high)
-    document.querySelector("#euro").textContent = `A cotação atual do euro em Real é: R$ ${EUR.toFixed(2)}`
-    document.querySelector("#dolar").textContent = `A cotação atual do dolar em Real é: R$ ${USD.toFixed(2)}`
-    document.querySelector('#bit').textContent = `A cotação atual do bitcoin em Real é: R$ ${BTC.toFixed(2)}`
-    
-    
-    
-})
-.catch(function(error){
-    console.warn(error)
-})
-axios.get('https://economia.awesomeapi.com.br/all/USD-BRL,EUR-BRL,BTC-BRL')
-.then(function(response){
-   
-    const EUR = Number(response.data.EUR.high)
-    const USD = Number(response.data.USD.high)
-    const conv = document.querySelector('#conv1').addEventListener("click", function(){
-        const mostraUSD = document.getElementById('mostraUSD').textContent = USD.toFixed(2) * document.querySelector('#conUSD').value + " R$"
-        if(mostraUSD === 0 + " R$"){
-            alert('você deve digitar um número')
-            
-        }else{
-            
-        }
-    })
-    const conv2 = document.querySelector('#conv2').addEventListener("click", function(){
-        const mostraEUR = document.getElementById('mostraEUR').textContent = EUR.toFixed(2) * document.querySelector('#conEUR').value + " R$"
-        if(mostraEUR == 0 + " R$"){
-            alert('você deve digitar um número')
-            
-        }else{
-            
-        }
-    })
-    
-    
-    
-})
-.catch(function(error){
-    console.warn(error = console.log('ocorreu um erro'))
-})
-const del1 = document.querySelector("#delete1").addEventListener("click", function(){
-    document.querySelector("#conUSD").value = ""
-    document.querySelector('#mostraUSD').textContent = ""
-})
-const del2 = document.querySelector("#delete2").addEventListener("click", function(){
-    document.querySelector("#conEUR").value = ""
-    document.querySelector('#mostraEUR').textContent = ""
-})
+const options = ['BTC', 'EUR', 'USD'];
+const optionsElement = document.getElementById('options');
+const conversorElement = document.getElementById('conversor');
+
+const onClickOption = (id, value) => {
+  axios.get(`https://economia.awesomeapi.com.br/all/${id}`).then((res) => {
+    const data = res.data;
+    const code = id.split('-')[0];
+    const COIN = Number(value * data[code].ask);
+
+    const element = document.getElementById('result');
+
+    element.textContent = `A conversão para ${code} está em ${new Intl.NumberFormat(
+      'pt-BR',
+      { currency: 'BRL', style: 'currency' }
+    ).format(COIN)}`;
+
+    conversorElement.appendChild(element);
+  });
+};
+
+for (let i = 0; i < options.length; i++) {
+  const option = options[i];
+  const button = document.createElement('button');
+  button.id = `${option}-BRL`;
+  button.setAttribute('selected', false);
+  button.textContent = `Converter ${option}`;
+
+  button.addEventListener('click', (ev) => {
+    const currentElement = ev.currentTarget;
+    const input = document.getElementById('coin-value');
+
+    if (!!input.value) {
+      onClickOption(currentElement.id, input.value);
+
+      input.value = null;
+    }
+  });
+
+  optionsElement.appendChild(button);
+}

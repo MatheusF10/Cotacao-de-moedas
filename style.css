@@ -1,85 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@500&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
 }
-p{
-    font-family: 'Montserrat', sans-serif;
-}
-nav{
-    width: 100%;
-    height: 50px;
-    border-bottom: solid 3px gray;
-    background-color: black;
-    color: white;
-}
-nav h1{
-    float: left;
-    margin-top: 10px;
-    margin-left: 10px;
-    font-family: 'Montserrat', sans-serif;
-}
-body{
-    background-image: url(./dollar-499481_1920.jpg);
-   text-align: center;
-   background-color: gray;
+html {
+  background-image: url(./dollar-499481_1920.jpg);
 }
 
-#cotacao{
-    width: 700px;
-    height: 400px;
-    float: right;
-    margin-right: 150px;
-    margin-top: 100px;
-    
-    background-color: white;
-    box-shadow: 7px 10px 30px black;
+h1,
+h2,
+p {
+  font-family: 'Montserrat', sans-serif;
 }
-#cotacao h1{
-    margin-bottom: 20px;
+
+button {
+  padding: 4px;
+  background: gray;
+  color: #000000;
 }
-#cotacao h2 {
-    text-align: left;
-    margin-left: 105px;
-    margin-top: 10px;
+
+header {
+  padding: 16px;
+  text-align: center;
+  color: white;
+  border-bottom: solid 3px gray;
+  background-color: black;
 }
-#cotacao p{
-    margin-top: 5px;
-    margin-bottom: 5px;
+#presentation {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  padding: 8px;
+  margin-bottom: 48px;
 }
-#conversor{
-    position: absolute;
-    width: 500px;
-    height: 400px;
-    float: left;
-    margin-left: 150px;
-    margin-top: 100px;
-    
-    background-color: white;
-    box-shadow: 7px 10px 30px black;
-    
+
+#presentation > h2 {
+  margin-bottom: 8px;
 }
-#conversor input{
-    width: 170px;
-    height: 20px;
-    border-style: solid;
+
+#conversor {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  padding: 8px;
+  margin: 16px auto;
+  text-align: center;
+  align-items: center;
 }
-#conversor button{
-    
-    width: 87px;
-    height: 30px;
-    border-style: none;
-    color: white;
-    background-color: gray;
+
+#conversor > button {
+  margin-bottom: 16px;
 }
-#conversor h2{
-    
-    text-align: left;
-    margin-left: 70px;
+
+#conversor > input {
+  width: 100%;
+  height: 40px;
+  font-size: 24px;
+  margin-bottom: 16px;
 }
-#content{
-    position: relative;
-    margin-top: 70px;
-    
+
+#result {
+  margin-top: 16px;
 }

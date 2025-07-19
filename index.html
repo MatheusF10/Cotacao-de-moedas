@@ -1,44 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
-<body>
-    <nav> <h1>Conversor de moedas e cotação atual</h1></nav>
-   
-<div id="body">
-    <div id="cotacao">
-        <div id="content">
-        <h1>Cotação atual</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Cotacao da moeda</title>
+  </head>
 
-        <h2>BTC:</h2><p id="bit"></p>
+  <body>
+    <header><h1>Cotação de moedas</h1></header>
 
-        <h2>USD:</h2><p id="dolar"></p>
+    <section id="presentation">
+      <h2>Acompanhe as cotações e converta os valores para BRL</h2>
+      <p>Esse é o cotacaodamoeda.com</p>
+    </section>
 
-        <h2>EUR:</h2><p id="euro"></p>
-        </div>
-        
-    </div>
-    
-    <div id="conversor">
-        <div id="content">
-        <h1>conversor</h1>
-        <h2>USD:</h2><input id="conUSD"></input>
-        <p id="mostraUSD"></p>
-        <button id="conv1">Converter</button><button id="delete1">Apagar</button>
-        <h2>EUR:</h2><input id="conEUR"></input>
-        <p id="mostraEUR"></p>
-        <button id="conv2" >Converter</button><button id="delete2">Apagar</button>
-        </div>
-        
-    </div>
-   
-</div>
-   
-</body>
-<script  src = " https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js " > </script>
-<script src="./script.js"></script>
+    <section id="conversor">
+      <h2>Converter</h2>
+
+      <input id="coin-value" type="text"></input>
+      
+      <div id="options"></div>
+
+      <h2 id="result"></h2>
+    </section>
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./script.js"></script>
 </html>
